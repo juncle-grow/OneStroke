@@ -11,12 +11,6 @@ namespace CrowsBedroom.Extensions
 
     public static class Utils
     {
-        [MenuItem("GameObject/Create GameObject")]
-        static void CreateGameObject()
-        {
-            var obj = new GameObject();
-            obj.transform.localPosition = Vector3.zero;
-        }
         public static void WithinRenderingArea2D(this Rigidbody2D rb2d)
         {
             var x = Mathf.Clamp(rb2d.position.x, RenderingArea.Min.x, RenderingArea.Max.x);
