@@ -4,8 +4,7 @@ using System.Text;
 using System.Xml;
 using System.IO;
 
-public class TMXLoader : MonoBehaviour
-{
+
 
     // レイヤー格納
     public class Layer2D
@@ -43,28 +42,9 @@ public class TMXLoader : MonoBehaviour
             if (y < 0 || y >= height) { return; }
             _vals[y * width + x] = val;
         }
-
-        // デバッグ出力
-        public void Dump()
-        {
-            print("[Layer2D] (w,h)=(" + width + "," + height + ")");
-            for (int y = 0; y < height; y++)
-            {
-                string s = "";
-                for (int x = 0; x < width; x++)
-                {
-                    s += Get(x, y) + ",";
-                }
-                print(s);
-            }
-        }
     }
-
-    [ContextMenu("Load")]
-    public void Load()
-    {
-        Load(1);
-    }
+public class TMXLoader
+{
 
     // レベルデータを読み込む
     public static Layer2D Load(int no)
