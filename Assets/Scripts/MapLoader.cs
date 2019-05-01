@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using CrowsBedroom.Extensions;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 namespace CrowsBedroom.OneStroke
 {
     public class MapLoader : MonoBehaviour
     {
-        [ContextMenu("Load1")]
-        public void Load1()
+        void Awake()
         {
-            var map = TMXLoader.Load(1);
+            var s = SceneManager.GetActiveScene().name;
+            var map = TMXLoader.Load(s);
             DrawMap(map);
         }
 

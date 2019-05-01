@@ -47,12 +47,12 @@ public class TMXLoader
 {
 
     // レベルデータを読み込む
-    public static Layer2D Load(int no)
+    public static Layer2D Load(string name)
     {
         // レイヤー生成
         Layer2D layer = new Layer2D();
         // レベルデータ取得
-        TextAsset tmx = Resources.Load("Question" + no.ToString()) as TextAsset;
+        TextAsset tmx = Resources.Load(name) as TextAsset;
 
         // XML解析開始
         XmlDocument xmlDoc = new XmlDocument();
