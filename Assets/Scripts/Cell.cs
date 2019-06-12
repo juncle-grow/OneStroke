@@ -5,15 +5,23 @@ using CrowsBedroom.Extensions;
 
 namespace CrowsBedroom.OneStroke
 {
+    public enum CellType
+    {
+        Road,
+        VisitedRoad,
+        Wall,
+    }
+
+    // Immutable class
     public class Cell
     {
-        public string Name { get; }
-        public bool HasVisited { get; set; }
-        public bool IsWalkable { get; private set; }
+        public readonly CellType Type;
+        public readonly bool IsWalkable;
+        public readonly bool HasVisited;
 
-        public Cell(string name, bool isWalkable)
+        public Cell(CellType type, bool isWalkable)
         {
-            Name = name;
+            Type = type;
             IsWalkable = isWalkable;
         }
     }

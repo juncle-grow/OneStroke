@@ -10,11 +10,21 @@ namespace CrowsBedroom.OneStroke
     {
         [SerializeField] Tilemap _tilemap = null;
         MapDict _mapDict = null;
+        PlayerController _player = null;
 
         void Start()
         {
             _mapDict = new MapDict(_tilemap);
             _mapDict.CreateDict();
+            _mapDict.Log();
+        }
+
+        /// <summary>
+        /// Update is called every frame, if the MonoBehaviour is enabled.
+        /// </summary>
+        void Update()
+        {
+            
         }
     }
 }

@@ -6,17 +6,19 @@ using System.Linq;
 
 namespace CrowsBedroom.OneStroke
 {
+    // Immutable class
     static class CellFactory
     {
-        static Cell[] _cells = new Cell[]
+        static readonly Cell[] _cells = new Cell[]
         {
-            new Cell("Floor", isWalkable: true),
-            new Cell("Aisle", isWalkable: false),
+            new Cell(CellType.Road,        isWalkable: true),
+            new Cell(CellType.VisitedRoad, isWalkable: false),
+            new Cell(CellType.Wall,        isWalkable: false),
         };
 
-        public static Cell GetInstance(string name)
+        public static Cell GetInstance(CellType type)
         {
-            return _cells.FirstOrDefault(x => x.Name == name);
+            return _cells.FirstOrDefault(x => x.Type == type);
         }
     }
 }

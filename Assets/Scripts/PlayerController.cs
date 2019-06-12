@@ -7,10 +7,10 @@ namespace CrowsBedroom.OneStroke
 {
     public class PlayerController : MonoBehaviour
     {
-        public string Move_Backward { get { return "Move_Backward"; } }
-        public string Move_Forward { get { return "Move_Forward"; } }
-        public string Move_Left { get { return "Move_Left"; } }
-        public string Move_Right { get { return "Move_Right"; } }
+        readonly string Move_Backward = "Move_Backward";
+        readonly string Move_Forward = "Move_Forward";
+        readonly string Move_Left = "Move_Left";
+        readonly string Move_Right = "Move_Right";
 
         [SerializeField] Animator _anim = null;
 

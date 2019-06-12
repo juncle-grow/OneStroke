@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using CrowsBedroom.Extensions;
 using UnityEngine.Tilemaps;
-using UnityEngine.SceneManagement;
+using System;
+
 namespace CrowsBedroom.OneStroke
 {
     public class MapDict
@@ -31,13 +30,31 @@ namespace CrowsBedroom.OneStroke
                     Debug.LogWarning(pos + "null");
                     continue;
                 }
-
-                _mapDict.Add(pos, CellFactory.GetInstance(tile.name));
+                // Try to get type from the tile.
+                // If succeeded, add Cell to the dict.
+                if (TryParse(tile.name, out CellType type))
+                {
+                    _mapDict.Add(pos, CellFactory.GetInstance(type));
+                }
             }
+        }
 
+        /// <summary>
+        /// Try to get CellType from name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="type"></param>
+        /// <returns>Whether it succeeded.</returns>
+        bool TryParse(string name, out CellType type)
+        {
+            return Enum.TryParse(name, out type) && Enum.IsDefined(typeof(CellType), type);
+        }
+
+        public void Log()
+        {
             foreach (var cell in _mapDict)
             {
-                Debug.Log(cell.Key + cell.Value.Name);
+                Debug.Log(cell.Key + cell.Value.Type.ToString());
             }
         }
     }
