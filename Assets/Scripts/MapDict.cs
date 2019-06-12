@@ -32,7 +32,12 @@ namespace CrowsBedroom.OneStroke
                     continue;
                 }
 
-                Debug.Log(pos + tile.name);
+                _mapDict.Add(pos, CellFactory.GetInstance(tile.name));
+            }
+
+            foreach (var cell in _mapDict)
+            {
+                Debug.Log(cell.Key + cell.Value.Name);
             }
         }
     }
