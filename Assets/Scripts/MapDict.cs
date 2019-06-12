@@ -50,6 +50,33 @@ namespace CrowsBedroom.OneStroke
             return Enum.TryParse(name, out type) && Enum.IsDefined(typeof(CellType), type);
         }
 
+        public Cell GetCell(Vector3Int pos)
+        {
+            return _mapDict.ContainsKey(pos) ? _mapDict[pos] : null;
+        }
+
+        public bool SetCell(Vector3Int pos, Cell cell)
+        {
+            if(!_mapDict.ContainsKey(pos))
+            {
+                return false;
+            }
+             _mapDict[pos] = cell;
+            return true;
+        }
+
+        public bool IsGameClear()
+        {
+            foreach (var cell in _mapDict)
+            {
+                if (cell.Value.Type == CellType.Road)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void Log()
         {
             foreach (var cell in _mapDict)

@@ -11,9 +11,8 @@ namespace CrowsBedroom.OneStroke
     {
         static readonly Cell[] _cells = new Cell[]
         {
-            new Cell(CellType.Road,        isWalkable: true),
-            new Cell(CellType.VisitedRoad, isWalkable: false),
-            new Cell(CellType.Wall,        isWalkable: false),
+            new Cell(CellType.Road, isWalkable: true),
+            new Cell(CellType.Wall, isWalkable: false),
         };
 
         public static Cell GetInstance(CellType type)

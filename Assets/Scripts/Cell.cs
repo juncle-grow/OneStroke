@@ -8,7 +8,6 @@ namespace CrowsBedroom.OneStroke
     public enum CellType
     {
         Road,
-        VisitedRoad,
         Wall,
     }
 
@@ -17,7 +16,6 @@ namespace CrowsBedroom.OneStroke
     {
         public readonly CellType Type;
         public readonly bool IsWalkable;
-        public readonly bool HasVisited;
 
         public Cell(CellType type, bool isWalkable)
         {
