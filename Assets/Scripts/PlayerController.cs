@@ -36,7 +36,7 @@ namespace CrowsBedroom.OneStroke
                 var pos = Vector3Int.FloorToInt(transform.position);
                 _map.DisableWalk(pos);
 
-                if(_map.IsGameClear())
+                if(_map.IsStageClear())
                 {
                     yield break;
                 }

@@ -65,7 +65,7 @@ namespace CrowsBedroom.OneStroke
             return true;
         }
 
-        public bool IsGameClear()
+        public bool IsStageClear()
         {
             foreach (var cell in _mapDict)
             {

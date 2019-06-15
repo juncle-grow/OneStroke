@@ -25,19 +25,17 @@ namespace CrowsBedroom.OneStroke
             _tilemap.SetColor(pos, Color.gray);
         }
 
-        // NAME:「問題を解いた」にしたい
-        public bool IsGameClear()
+        public bool IsStageClear()
         {
-            var isClear = _mapDict.IsGameClear();
+            var isClear = _mapDict.IsStageClear();
             if (isClear)
             {
-                GameClear();
+                StageClear();
             }
             return isClear;
         }
 
-        // NAME:「問題を解いた」にしたい
-        void GameClear()
+        void StageClear()
         {
             Debug.LogError("Game Clear!");
         }
