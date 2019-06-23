@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CrowsBedroom.Extensions;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 namespace CrowsBedroom.OneStroke
 {
@@ -10,6 +11,7 @@ namespace CrowsBedroom.OneStroke
     {
         [SerializeField] Tilemap _tilemap = null;
         MapDict _mapDict = null;
+        [SerializeField] Color _visitedColor = Color.gray;
 
         void Awake()
         {
@@ -22,7 +24,7 @@ namespace CrowsBedroom.OneStroke
         {
             _mapDict.SetCell(pos, CellFactory.GetInstance(CellType.Wall));
             _tilemap.SetTileFlags(pos, TileFlags.None);
-            _tilemap.SetColor(pos, Color.gray);
+            _tilemap.SetColor(pos, _visitedColor);
         }
 
         public bool IsStageClear()
@@ -37,7 +39,7 @@ namespace CrowsBedroom.OneStroke
 
         void StageClear()
         {
-            Debug.LogError("Game Clear!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public bool IsWalkable(Vector3Int playerPos)

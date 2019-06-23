@@ -27,7 +27,6 @@ namespace CrowsBedroom.OneStroke
 
                 if (tile == null)
                 {
-                    Debug.LogWarning(pos + "null");
                     continue;
                 }
                 // Try to get type from the tile.
